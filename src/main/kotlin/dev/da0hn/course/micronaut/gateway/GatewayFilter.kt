@@ -11,19 +11,16 @@ import io.micronaut.http.client.ProxyHttpClient
 import io.micronaut.http.filter.FilterChain
 import io.micronaut.http.filter.HttpFilter
 import io.reactivex.Flowable
-import jakarta.inject.Inject
 import mu.KotlinLogging
 import org.reactivestreams.Publisher
 
 @Filter("/**")
 class GatewayFilter(
   private val proxyHttpClient: ProxyHttpClient,
+  private val serviceLoadBalancers: Map<String, LoadBalancer>,
 ) : HttpFilter {
 
   private val logger = KotlinLogging.logger { }
-
-  @Inject
-  lateinit var serviceLoadBalancers: Map<String, LoadBalancer>
 
   override fun doFilter(request: HttpRequest<*>?, chain: FilterChain?): Publisher<out HttpResponse<*>> {
     val serviceName = request?.path?.replace(Regex("^/([^/]+).*$"), replacement = "$1")
