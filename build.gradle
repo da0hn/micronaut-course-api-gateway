@@ -24,6 +24,7 @@ dependencies {
   implementation("org.yaml:snakeyaml:2.2")
   implementation("io.micronaut.discovery:micronaut-discovery-client:4.0.1")
   implementation("io.reactivex.rxjava2:rxjava:2.2.21")
+  implementation ('io.github.microutils:kotlin-logging-jvm:3.0.5')
   compileOnly("io.micronaut:micronaut-http-client:4.0.1")
   runtimeOnly("ch.qos.logback:logback-classic:1.4.14")
   runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.3")
