@@ -1,0 +1,17 @@
+micronaut:
+  application:
+    name: api-gateway
+  server:
+    port: 8000
+  config-client:
+    enabled: true
+consul:
+  client:
+    registration:
+      enabled: true
+    defaultZone: ${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}
+gateway:
+  services:
+    - vehicle-service
+    - report-service
+    - sale-service
