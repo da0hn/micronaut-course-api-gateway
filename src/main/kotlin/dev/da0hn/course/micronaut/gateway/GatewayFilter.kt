@@ -34,7 +34,7 @@ class GatewayFilter(
     return Flowable.fromPublisher(loadBalancer.select())
       .flatMap { targetServiceInstance ->
         val proxiedRequest = this.prepareForRequestTarget(request!!, targetServiceInstance)
-        logger.info { "Proxying ${request.path} to ${proxiedRequest.uri} (${targetServiceInstance.instanceId})" }
+        logger.info { "Proxying ${request.path} to ${proxiedRequest.uri} (${targetServiceInstance.id})" }
         Flowable.fromPublisher(this.proxyHttpClient.proxy(proxiedRequest))
       }
   }
