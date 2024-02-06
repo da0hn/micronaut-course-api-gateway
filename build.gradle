@@ -21,6 +21,7 @@ dependencies {
   implementation("io.micronaut.serde:micronaut-serde-jackson:2.1.0")
   implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+  implementation("org.yaml:snakeyaml:2.2")
   implementation("io.micronaut.discovery:micronaut-service-discovery-client:4.0.1")
   implementation("io.reactivex.rxjava2:rxjava:2.2.21")
   compileOnly("io.micronaut:micronaut-http-client:4.0.1")
